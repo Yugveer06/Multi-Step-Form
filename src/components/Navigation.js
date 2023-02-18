@@ -4,8 +4,12 @@ import "./Navigation.scss";
 
 import { AnimatePresence, motion as m } from "framer-motion";
 
-const Navigation = ({ activeStep, setActiveStep, setIsSubmitted }) => {
+const Navigation = ({ activeStep, setActiveStep, step1Data, setIsSubmitted, setShowStep1Errors }) => {
 	const handleNext = () => {
+		if (activeStep === 1 && (step1Data.name === "" || step1Data.email === "" || step1Data.phone === "")) {
+			setShowStep1Errors(true);
+			return;
+		}
 		if (activeStep < 4) {
 			setActiveStep((e) => e + 1);
 		} else if (activeStep === 4) {

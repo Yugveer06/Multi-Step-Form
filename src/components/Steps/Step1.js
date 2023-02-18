@@ -1,12 +1,15 @@
-import React from "react";
-import Navigation from "../Navigation";
+import React, { useRef } from "react";
 
 import "./StepContent.scss";
 import "./Step1.scss";
 
 import { motion as m, AnimatePresence } from "framer-motion";
 
-const Step1 = ({ step1Data, setStep1Data }) => {
+const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
+	const nameInput = useRef(null);
+	const emailInput = useRef(null);
+	const phoneInput = useRef(null);
+
 	const handleInput = (e) => {
 		const inputs = { [e.target.id]: e.target.value };
 		setStep1Data({ ...step1Data, ...inputs });
@@ -22,8 +25,8 @@ const Step1 = ({ step1Data, setStep1Data }) => {
 				<div className='inputGroup'>
 					<div className='inputTitle'>
 						<label htmlFor='name'>Name</label>
-						{/* <AnimatePresence>
-							{step1Data.name === "" && (
+						<AnimatePresence>
+							{showStep1Errors && step1Data.name === "" && (
 								<m.span
 									className='name errorMsg'
 									initial={{ opacity: 0 }}
@@ -33,11 +36,12 @@ const Step1 = ({ step1Data, setStep1Data }) => {
 									This field is required
 								</m.span>
 							)}
-						</AnimatePresence> */}
+						</AnimatePresence>
 					</div>
 					<input
 						type='text'
 						id='name'
+						ref={nameInput}
 						placeholder='e.g. Stephen King'
 						value={step1Data.name}
 						onChange={handleInput}
@@ -47,8 +51,8 @@ const Step1 = ({ step1Data, setStep1Data }) => {
 				<div className='inputGroup'>
 					<div className='inputTitle'>
 						<label htmlFor='email'>Email Address</label>
-						{/* <AnimatePresence>
-							{step1Data.email === "" && (
+						<AnimatePresence>
+							{showStep1Errors && step1Data.email === "" && (
 								<m.span
 									className='email errorMsg'
 									initial={{ opacity: 0 }}
@@ -58,11 +62,12 @@ const Step1 = ({ step1Data, setStep1Data }) => {
 									This field is required
 								</m.span>
 							)}
-						</AnimatePresence> */}
+						</AnimatePresence>
 					</div>
 					<input
 						type='text'
 						id='email'
+						ref={emailInput}
 						placeholder='e.g. stephenking@lorem.com'
 						value={step1Data.email}
 						onChange={handleInput}
@@ -72,8 +77,8 @@ const Step1 = ({ step1Data, setStep1Data }) => {
 				<div className='inputGroup'>
 					<div className='inputTitle'>
 						<label htmlFor='phone'>Phone Number</label>
-						{/* <AnimatePresence>
-							{step1Data.phone === "" && (
+						<AnimatePresence>
+							{showStep1Errors && step1Data.phone === "" && (
 								<m.span
 									className='phone errorMsg'
 									initial={{ opacity: 0 }}
@@ -83,11 +88,12 @@ const Step1 = ({ step1Data, setStep1Data }) => {
 									This field is required
 								</m.span>
 							)}
-						</AnimatePresence> */}
+						</AnimatePresence>
 					</div>
 					<input
 						type='tel'
 						id='phone'
+						ref={phoneInput}
 						placeholder='e.g. +1 234 567 890'
 						value={step1Data.phone}
 						onChange={handleInput}

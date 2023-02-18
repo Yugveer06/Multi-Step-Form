@@ -6,6 +6,7 @@ import "./Wrapper.scss";
 const Wrapper = () => {
 	const [activeStep, setActiveStep] = useState(1);
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [showStep1Errors, setShowStep1Errors] = useState(false);
 	const [step1Data, setStep1Data] = useState({
 		name: "",
 		email: "",
@@ -52,6 +53,9 @@ const Wrapper = () => {
 				//
 				totalPrice={totalPrice}
 				isSubmitted={isSubmitted}
+				//
+				showStep1Errors={showStep1Errors}
+				setShowStep1Errors={setShowStep1Errors}
 				setIsSubmitted={setIsSubmitted}
 			/>
 		</div>

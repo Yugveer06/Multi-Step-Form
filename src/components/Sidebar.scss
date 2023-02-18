@@ -2,14 +2,35 @@
 
 .sidebar {
 	z-index: 99;
-	width: 274px;
-	height: 568px;
+	min-width: 274px;
+	min-height: 568px;
 	background-image: url("../../public/images/sidebar/bg-sidebar-desktop.svg");
+
+	@media screen and (max-width: 720px) {
+		position: fixed;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		min-width: 375px;
+		min-height: 172px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url("../../public/images/sidebar/bg-sidebar-mobile.svg");
+	}
 
 	.steps {
 		@include App.centered-flex-column;
+		margin-top: 8px;
 		gap: 32px;
 		padding: 32px;
+
+		@media screen and (max-width: 720px) {
+			flex-direction: row;
+		}
 
 		.step {
 			@include App.centered-flex-row;
@@ -22,8 +43,8 @@
 				@include App.centered-flex-row;
 				position: relative;
 				color: App.$white;
-				width: 32px;
-				height: 32px;
+				min-width: 32px;
+				min-height: 32px;
 				font-weight: 500;
 				border-radius: 50%;
 				box-shadow: 0 0 0 1px App.$white;
@@ -57,6 +78,10 @@
 				flex-direction: column;
 				gap: 4px;
 				flex-grow: 1;
+
+				@media screen and (max-width: 720px) {
+					display: none;
+				}
 
 				.stepNum {
 					font-size: 0.8rem;

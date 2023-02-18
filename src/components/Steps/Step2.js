@@ -4,7 +4,7 @@ import "./StepContent.scss";
 
 import "./Step2.scss";
 
-import { AnimatePresence, motion as m } from "framer-motion";
+import { motion as m } from "framer-motion";
 
 const Step2 = ({ step2Data, setStep2Data }) => {
 	const plans = [

@@ -45,8 +45,11 @@ main {
 					transition: background 0.2s ease, box-shadow 0.2s ease;
 
 					svg {
-						width: 12px;
-						height: 12px;
+						width: 14px;
+						height: 14px;
+						fill: none;
+						stroke-width: 3px;
+						stroke: App.$white;
 					}
 				}
 			}

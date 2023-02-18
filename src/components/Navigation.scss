@@ -7,6 +7,15 @@
 	width: 90%;
 	padding: 16px 32px;
 
+	@media screen and (max-width: 720px) {
+		z-index: 2;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		background: App.$white;
+		width: 100vw;
+	}
+
 	&:not(:has(.goBack)) {
 		justify-content: flex-end;
 	}

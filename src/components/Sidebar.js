@@ -1,20 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Sidebar.scss";
 
-import { motion as m, useTransform } from "framer-motion";
+import { motion as m } from "framer-motion";
 
 const Sidebar = ({ activeStep, setActiveStep, step1Data, isSubmitted }) => {
 	const steps = ["your info", "select plan", "add-ons", "summary"];
 	return (
-		<div className='sidebar' style={{ pointerEvents: isSubmitted ? "none" : "auto" }}>
-			<div className='steps'>
+		<div className='sidebar'>
+			<m.div className='steps'>
 				{steps.map((step, id) => {
 					id += 1;
 					return (
 						<div
-							className={`step ${id} ${activeStep === id ? "active" : ""}`}
+							className={`step ${id} ${id === activeStep ? "active" : ""}`}
 							key={id}
 							onClick={() => setActiveStep(id)}
+							style={{
+								pointerEvents:
+									(id !== 1 && (step1Data.name === "" || step1Data.email === "" || step1Data.phone === "")) ||
+									isSubmitted
+										? "none"
+										: "auto",
+							}}
 						>
 							<div className='circle'>
 								<span>{id}</span>
@@ -27,7 +34,7 @@ const Sidebar = ({ activeStep, setActiveStep, step1Data, isSubmitted }) => {
 						</div>
 					);
 				})}
-			</div>
+			</m.div>
 		</div>
 	);
 };

@@ -1,0 +1,29 @@
+@use "../App.scss";
+
+.confirmation {
+	@include App.centered-flex-column;
+	flex-direction: column;
+	flex-shrink: 1;
+	height: 100%;
+	gap: 16px;
+
+	@media screen and (max-width: 720px) {
+		padding: 64px 0;
+	}
+
+	.image {
+		margin-bottom: 16px;
+	}
+
+	.title {
+		font-size: 2rem;
+		font-weight: 700;
+		color: App.$marineBlue;
+	}
+
+	.message {
+		text-align: center;
+		color: App.$coolGray;
+		line-height: 24px;
+	}
+}

@@ -36,18 +36,22 @@ const Step4 = ({ setActiveStep, step2Data, step3Data, totalPrice }) => {
 
 						<div className='addonInfo'>
 							{step3Data.map((addon, id) => {
-								if (addon.checked) {
-									return (
-										<div className='addonList' key={id}>
-											<div className='name'>{addon.name}</div>
-											<div className='price'>
-												+${addon.price[step2Data.planType === "monthly" ? 0 : 1]}/
-												{step2Data.planType === "monthly" ? "mo" : "yr"}
-											</div>
+								if (!addon.checked) return null;
+								return (
+									<div className='addonList' key={id}>
+										<div className='name'>{addon.name}</div>
+										<div className='price'>
+											+${addon.price[step2Data.planType === "monthly" ? 0 : 1]}/
+											{step2Data.planType === "monthly" ? "mo" : "yr"}
 										</div>
-									);
-								}
+									</div>
+								);
 							})}
+							{step3Data.every((e) => !e.checked) && (
+								<div className='addonList' key='noAddons'>
+									<div className='name'>No add-ons</div>
+								</div>
+							)}
 						</div>
 					</div>
 					<div className='totalPrice'>

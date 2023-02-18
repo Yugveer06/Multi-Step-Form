@@ -5,9 +5,25 @@
 	flex-grow: 1;
 	height: 568px;
 
+	@media screen and (max-width: 720px) {
+		flex-grow: unset;
+		height: unset;
+		margin-top: 84px;
+		padding-bottom: 116px;
+	}
+
 	.content {
 		width: 90%;
 		height: 100%;
 		padding: 32px;
+
+		@media screen and (max-width: 720px) {
+			border-radius: 8px;
+			width: 100%;
+			width: calc(100vw - 32px);
+			z-index: 1;
+			background: App.$white;
+			box-shadow: 0 10px 100px -90px App.$marineBlue;
+		}
 	}
 }

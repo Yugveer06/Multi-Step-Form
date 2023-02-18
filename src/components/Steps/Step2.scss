@@ -11,7 +11,12 @@ main {
 		justify-content: space-between;
 		gap: 16px;
 
+		@media screen and (max-width: 720px) {
+			flex-direction: column;
+		}
+
 		.plan {
+			user-select: none;
 			display: flex;
 			flex-direction: column;
 			cursor: pointer;
@@ -22,6 +27,12 @@ main {
 			padding: 16px;
 			border: 1px solid App.$lightGray;
 			transition: border 0.2s ease, background 0.2s ease;
+
+			@media screen and (max-width: 720px) {
+				flex-direction: row;
+				width: 100%;
+				gap: 24px;
+			}
 
 			&:hover {
 				border: 1px solid App.$purplishBlue;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "./StepContent.scss";
 import "./Step3.scss";
@@ -44,13 +44,14 @@ const Step3 = ({ step2Data, step3Data, setStep3Data }) => {
 								<div className='checkboxWrapper'>
 									<div className='checkbox'>
 										{step3Data[index].checked && (
-											<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+											<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
 												<m.path
-													d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'
-													fill='white'
+													d='M5 13l4 4L19 7'
 													stroke='white'
-													initial={{ pathLength: 0, strokeWidth: 70, fillOpacity: 0 }}
-													animate={{ pathLength: 1, strokeWidth: 0, fillOpacity: 1 }}
+													strokeLinecap='round'
+													strokeLinejoin='round'
+													initial={{ pathLength: 0, fillOpacity: 0 }}
+													animate={{ pathLength: 1, fillOpacity: 1 }}
 													transition={{ duration: 0.6, fillOpacity: { duration: 0.3, delay: 0.15 } }}
 												/>
 											</svg>

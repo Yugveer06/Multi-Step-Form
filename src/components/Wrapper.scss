@@ -10,4 +10,11 @@
 	border-radius: 16px;
 	box-shadow: 0 10px 100px -90px App.$marineBlue;
 	background: App.$white;
+
+	@media screen and (max-width: 720px) {
+		width: 100vw;
+		min-height: 100vh;
+		flex-direction: column;
+		background: App.$magnolia;
+	}
 }
