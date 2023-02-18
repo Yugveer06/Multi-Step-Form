@@ -1,0 +1,78 @@
+@use "../../App";
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	.addon {
+		user-select: none;
+		display: flex;
+		justify-content: space-between;
+		cursor: pointer;
+		border-radius: 8px;
+		padding: 16px;
+		border: 1px solid App.$lightGray;
+		transition: border 0.2s ease, background 0.2s ease;
+
+		&:hover {
+			border: 1px solid App.$purplishBlue;
+		}
+
+		&.checked {
+			border: 1px solid App.$purplishBlue;
+			background: App.$alabaster;
+
+			.checkbox {
+				box-shadow: 0 0 0 1px App.$purplishBlue !important;
+				background: App.$purplishBlue;
+			}
+		}
+
+		.leftSide {
+			display: flex;
+			gap: 16px;
+			.checkboxWrapper {
+				@include App.centered-flex-row;
+				width: 32px;
+
+				.checkbox {
+					@include App.centered-flex-row;
+					width: 18px;
+					height: 18px;
+					border-radius: 4px;
+					box-shadow: 0 0 0 1px App.$lightGray;
+					transition: background 0.2s ease, box-shadow 0.2s ease;
+
+					svg {
+						width: 12px;
+						height: 12px;
+					}
+				}
+			}
+
+			.main {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+
+				.title {
+					font-weight: 500;
+					color: App.$marineBlue;
+				}
+
+				.description {
+					color: App.$coolGray;
+					font-size: 0.9rem;
+				}
+			}
+		}
+
+		.price {
+			@include App.centered-flex-row;
+			font-size: 0.9rem;
+			font-weight: 500;
+			color: App.$purplishBlue;
+		}
+	}
+}

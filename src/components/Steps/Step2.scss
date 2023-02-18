@@ -1,0 +1,116 @@
+@use "../../App";
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+
+	.plans {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+
+		.plan {
+			display: flex;
+			flex-direction: column;
+			cursor: pointer;
+			gap: 48px;
+			width: 8px;
+			flex: auto;
+			border-radius: 8px;
+			padding: 16px;
+			border: 1px solid App.$lightGray;
+			transition: border 0.2s ease, background 0.2s ease;
+
+			&:hover {
+				border: 1px solid App.$purplishBlue;
+			}
+
+			&.active {
+				border: 1px solid App.$purplishBlue;
+				background: App.$alabaster;
+			}
+
+			.description {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+
+				.name {
+					font-weight: 500;
+					color: App.$marineBlue;
+				}
+				.price {
+					color: App.$coolGray;
+				}
+				.offer {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+
+	.planType {
+		@include App.centered-flex-row;
+		gap: 32px;
+		background: App.$alabaster;
+		border-radius: 8px;
+		height: 48px;
+
+		span {
+			cursor: pointer;
+			user-select: none;
+			color: App.$coolGray;
+			transition: color 0.2s ease;
+			&.active {
+				color: App.$marineBlue;
+			}
+		}
+
+		.toggle {
+			width: 32px;
+			height: 16px;
+			scale: 1.2;
+			cursor: pointer;
+
+			border-radius: 16px;
+			background: App.$marineBlue;
+
+			.circle {
+				position: absolute;
+				top: 50%;
+				translate: 0 -50%;
+				width: 10px;
+				height: 10px;
+				background: App.$white;
+				border-radius: 50%;
+				transition: left 0.2s ease, width 0.2s ease, border-radius 0.2s ease;
+			}
+
+			&.monthly {
+				.circle {
+					left: 4px;
+				}
+				&:active {
+					.circle {
+						border-radius: 5px;
+						width: calc(100% - 4px - 4px);
+					}
+				}
+			}
+			&.yearly {
+				.circle {
+					left: calc(100% - 10px - 4px);
+				}
+				&:active {
+					.circle {
+						left: 4px;
+						border-radius: 5px;
+						width: calc(100% - 4px - 4px);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,75 @@
+@use "../App";
+
+.sidebar {
+	z-index: 99;
+	width: 274px;
+	height: 568px;
+	background-image: url("../../public/images/sidebar/bg-sidebar-desktop.svg");
+
+	.steps {
+		@include App.centered-flex-column;
+		gap: 32px;
+		padding: 32px;
+
+		.step {
+			@include App.centered-flex-row;
+			gap: 16px;
+			width: 100%;
+			user-select: none;
+			cursor: pointer;
+
+			.circle {
+				@include App.centered-flex-row;
+				position: relative;
+				color: App.$white;
+				width: 32px;
+				height: 32px;
+				font-weight: 500;
+				border-radius: 50%;
+				box-shadow: 0 0 0 1px App.$white;
+				transition: color 0.3s ease, box-shadow 0.3s ease;
+
+				span {
+					z-index: 1;
+				}
+
+				.circleBackground {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					border-radius: inherit;
+					z-index: 0;
+					background: App.$lightBlue;
+				}
+			}
+			&.active {
+				.circle {
+					color: App.$marineBlue;
+					box-shadow: 0 0 0 0px App.$lightBlue;
+					transition: color 0.3s 0.3s ease, box-shadow 0.3s 0.3s ease;
+				}
+			}
+
+			.stepInfo {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+				flex-grow: 1;
+
+				.stepNum {
+					font-size: 0.8rem;
+					font-weight: 100;
+					color: App.$pastelBlue;
+				}
+
+				.stepName {
+					font-weight: 500;
+					color: App.$white;
+					letter-spacing: 1px;
+				}
+			}
+		}
+	}
+}

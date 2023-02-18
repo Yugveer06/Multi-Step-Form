@@ -1,0 +1,37 @@
+// ----- Colors -----
+// Primary
+$marineBlue: rgb(2, 41, 90);
+$purplishBlue: rgb(71, 61, 255);
+$pastelBlue: rgb(173, 190, 255);
+$lightBlue: rgb(191, 226, 253);
+$strawberryRed: rgb(237, 53, 72);
+// Neutral
+$coolGray: rgb(150, 153, 171);
+$lightGray: rgb(214, 217, 230);
+$magnolia: rgb(240, 246, 255);
+$alabaster: rgb(250, 251, 255);
+$white: rgb(255, 255, 255);
+
+// ----- Mixins -----
+@mixin centered-flex-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+@mixin centered-flex-column {
+	@include centered-flex-row;
+	flex-direction: column;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Ubuntu", sans-serif;
+}
+
+.App {
+	@include centered-flex-row;
+	height: 100vh;
+	background: $magnolia;
+}

@@ -1,0 +1,53 @@
+@use "../../App";
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	.inputGroup {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		.inputTitle {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			label {
+				color: App.$marineBlue;
+			}
+
+			.errorMsg {
+				font-weight: 500;
+				color: App.$strawberryRed;
+			}
+		}
+
+		input {
+			all: unset;
+			color: App.$marineBlue;
+			cursor: pointer;
+			font-weight: 500;
+			border: 1px solid App.$lightGray;
+			border-radius: 8px;
+			padding: 0 10px;
+			height: 48px;
+			transition: border 0.2s ease;
+
+			&::placeholder {
+				color: App.$coolGray;
+			}
+
+			&:hover,
+			&:focus {
+				border: 1px solid App.$purplishBlue;
+			}
+
+			// &.error {
+			// 	border: 1px solid App.$strawberryRed;
+			// }
+		}
+	}
+}

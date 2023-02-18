@@ -1,0 +1,64 @@
+@use "../App";
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 90%;
+	padding: 16px 32px;
+
+	&:not(:has(.goBack)) {
+		justify-content: flex-end;
+	}
+
+	button {
+		all: unset;
+		cursor: pointer;
+		user-select: none;
+		height: 48px;
+		text-align: center;
+		box-shadow: 0 0 0 0px App.$marineBlue;
+
+		&:active {
+			scale: 0.98;
+		}
+	}
+
+	.goBack {
+		box-shadow: 0 0 0 0px App.$lightGray;
+		border-radius: 0px;
+		color: App.$coolGray;
+		transition: scale 0.2s ease, color 0.2s ease, padding 0.2s 0.1s ease, box-shadow 0.2s ease, border-radius 0.2s ease;
+
+		&:hover,
+		&:focus {
+			color: App.$marineBlue;
+		}
+
+		&:focus {
+			border-radius: 8px;
+			padding: 0 8px;
+			box-shadow: 0 0 0 1px App.$lightGray;
+			transition: scale 0.2s ease, color 0.2s ease, padding 0.2s ease, box-shadow 0.2s ease, border-radius 0.2s ease;
+		}
+	}
+
+	.nextStep {
+		filter: saturate(100%);
+		border-radius: 8px;
+		width: 128px;
+		color: App.$white;
+		background: App.$marineBlue;
+		transition: background 1s ease, scale 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+
+		&:hover,
+		&:focus {
+			filter: saturate(200%);
+			opacity: 0.8;
+		}
+	}
+
+	.nextStep.confirm {
+		background: App.$purplishBlue;
+	}
+}

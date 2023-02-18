@@ -1,0 +1,13 @@
+@use "../App";
+
+.wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 900px;
+	padding: 16px;
+	border-radius: 16px;
+	box-shadow: 0 10px 100px -90px App.$marineBlue;
+	background: App.$white;
+}
