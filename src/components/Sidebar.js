@@ -6,7 +6,7 @@ import { motion as m } from "framer-motion";
 const Sidebar = ({ activeStep, setActiveStep, step1Data, isSubmitted }) => {
 	const steps = ["your info", "select plan", "add-ons", "summary"];
 	return (
-		<div className='sidebar'>
+		<nav className='sidebar'>
 			<m.div className='steps'>
 				{steps.map((step, id) => {
 					id += 1;
@@ -35,7 +35,7 @@ const Sidebar = ({ activeStep, setActiveStep, step1Data, isSubmitted }) => {
 					);
 				})}
 			</m.div>
-		</div>
+		</nav>
 	);
 };
 

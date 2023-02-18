@@ -18,7 +18,7 @@ const Navigation = ({ activeStep, setActiveStep, step1Data, setIsSubmitted, setS
 		}
 	};
 	return (
-		<m.div className='buttons' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+		<m.nav className='buttons' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<AnimatePresence>
 				{activeStep > 1 && (
 					<m.button
@@ -45,7 +45,7 @@ const Navigation = ({ activeStep, setActiveStep, step1Data, setIsSubmitted, setS
 					</AnimatePresence>
 				</button>
 			</AnimatePresence>
-		</m.div>
+		</m.nav>
 	);
 };
 
