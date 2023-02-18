@@ -45,9 +45,9 @@ main {
 				border: 1px solid App.$purplishBlue;
 			}
 
-			// &.error {
-			// 	border: 1px solid App.$strawberryRed;
-			// }
+			&.error {
+				border: 1px solid App.$strawberryRed;
+			}
 		}
 	}
 }

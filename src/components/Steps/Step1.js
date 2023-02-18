@@ -45,7 +45,7 @@ const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 						placeholder='e.g. Stephen King'
 						value={step1Data.name}
 						onChange={handleInput}
-						className={step1Data.name === "" ? "error" : ""}
+						className={showStep1Errors && step1Data.name === "" ? "error" : ""}
 					/>
 				</div>
 				<div className='inputGroup'>
@@ -71,7 +71,7 @@ const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 						placeholder='e.g. stephenking@lorem.com'
 						value={step1Data.email}
 						onChange={handleInput}
-						className={step1Data.email === "" ? "error" : ""}
+						className={showStep1Errors && step1Data.email === "" ? "error" : ""}
 					/>
 				</div>
 				<div className='inputGroup'>
@@ -97,7 +97,7 @@ const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 						placeholder='e.g. +1 234 567 890'
 						value={step1Data.phone}
 						onChange={handleInput}
-						className={step1Data.phone === "" ? "error" : ""}
+						className={showStep1Errors && step1Data.phone === "" ? "error" : ""}
 					/>
 				</div>
 			</main>
