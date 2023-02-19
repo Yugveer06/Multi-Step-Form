@@ -4,6 +4,8 @@ import "./StepContent.scss";
 import "./Step1.scss";
 
 import { motion as m, AnimatePresence } from "framer-motion";
+import ValidateEmail from "../../Validate/ValidateEmail";
+import ValidatePhone from "../../Validate/ValidatePhone";
 
 const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 	const nameInput = useRef(null);
@@ -52,14 +54,18 @@ const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 					<div className='inputTitle'>
 						<label htmlFor='email'>Email Address</label>
 						<AnimatePresence>
-							{showStep1Errors && step1Data.email === "" && (
+							{showStep1Errors && (step1Data.email === "" || ValidateEmail(step1Data.email)) && (
 								<m.span
 									className='email errorMsg'
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}
 								>
-									This field is required
+									{step1Data.email === ""
+										? "This field is required"
+										: ValidateEmail(step1Data.email)
+										? "Invalid email format"
+										: ""}
 								</m.span>
 							)}
 						</AnimatePresence>
@@ -71,21 +77,25 @@ const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 						placeholder='e.g. stephenking@lorem.com'
 						value={step1Data.email}
 						onChange={handleInput}
-						className={showStep1Errors && step1Data.email === "" ? "error" : ""}
+						className={showStep1Errors && (step1Data.email === "" || ValidateEmail(step1Data.email)) ? "error" : ""}
 					/>
 				</div>
 				<div className='inputGroup'>
 					<div className='inputTitle'>
 						<label htmlFor='phone'>Phone Number</label>
 						<AnimatePresence>
-							{showStep1Errors && step1Data.phone === "" && (
+							{showStep1Errors && (step1Data.phone === "" || ValidatePhone(step1Data.phone)) && (
 								<m.span
 									className='phone errorMsg'
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}
 								>
-									This field is required
+									{step1Data.phone === ""
+										? "This field is required"
+										: ValidatePhone(step1Data.phone)
+										? "Invalid phone number"
+										: ""}
 								</m.span>
 							)}
 						</AnimatePresence>
@@ -97,7 +107,7 @@ const Step1 = ({ step1Data, setStep1Data, showStep1Errors }) => {
 						placeholder='e.g. +1 234 567 890'
 						value={step1Data.phone}
 						onChange={handleInput}
-						className={showStep1Errors && step1Data.phone === "" ? "error" : ""}
+						className={showStep1Errors && (step1Data.phone === "" || ValidatePhone(step1Data.phone)) ? "error" : ""}
 					/>
 				</div>
 			</main>

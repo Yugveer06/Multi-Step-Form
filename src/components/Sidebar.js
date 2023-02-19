@@ -3,6 +3,9 @@ import "./Sidebar.scss";
 
 import { motion as m } from "framer-motion";
 
+import ValidateEmail from "../Validate/ValidateEmail";
+import ValidatePhone from "../Validate/ValidatePhone";
+
 const Sidebar = ({ activeStep, setActiveStep, step1Data, isSubmitted }) => {
 	const steps = ["your info", "select plan", "add-ons", "summary"];
 	return (
@@ -17,7 +20,12 @@ const Sidebar = ({ activeStep, setActiveStep, step1Data, isSubmitted }) => {
 							onClick={() => setActiveStep(id)}
 							style={{
 								pointerEvents:
-									(id !== 1 && (step1Data.name === "" || step1Data.email === "" || step1Data.phone === "")) ||
+									(id !== 1 &&
+										(step1Data.name === "" ||
+											step1Data.email === "" ||
+											ValidateEmail(step1Data.email) ||
+											step1Data.phone === "" ||
+											ValidatePhone(step1Data.phone))) ||
 									isSubmitted
 										? "none"
 										: "auto",

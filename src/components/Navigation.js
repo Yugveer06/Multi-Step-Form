@@ -3,10 +3,19 @@ import React from "react";
 import "./Navigation.scss";
 
 import { AnimatePresence, motion as m } from "framer-motion";
+import ValidateEmail from "../Validate/ValidateEmail";
+import ValidatePhone from "../Validate/ValidatePhone";
 
 const Navigation = ({ activeStep, setActiveStep, step1Data, setIsSubmitted, setShowStep1Errors }) => {
 	const handleNext = () => {
-		if (activeStep === 1 && (step1Data.name === "" || step1Data.email === "" || step1Data.phone === "")) {
+		if (
+			activeStep === 1 &&
+			(step1Data.name === "" ||
+				step1Data.email === "" ||
+				ValidateEmail(step1Data.email) ||
+				step1Data.phone === "" ||
+				ValidatePhone(step1Data.phone))
+		) {
 			setShowStep1Errors(true);
 			return;
 		}
